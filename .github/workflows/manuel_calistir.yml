@@ -1,0 +1,31 @@
+name: Manuel Blog Yorum Cekici
+
+# Bu kısım 'Actions' sekmesinde manuel buton çıkmasını sağlar
+on:
+  workflow_dispatch:
+
+jobs:
+  scrape_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Kodlari Cek
+        uses: actions/checkout@v3
+
+      - name: Python Kur
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Kutuphaneleri Yukle
+        run: pip install requests beautifulsoup4
+
+      - name: Scraperi Calistir
+        run: python scrapper.py
+
+      - name: Verileri Kaydet ve Depoya Yukle
+        run: |
+          git config --global user.name 'GitHub Action'
+          git config --global user.email 'action@github.com'
+          git add tum_yorumlar.json
+          git commit -m "Yorumlar manuel olarak güncellendi" || exit 0
+          git push
