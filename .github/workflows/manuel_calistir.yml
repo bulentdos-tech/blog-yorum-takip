@@ -1,8 +1,4 @@
-Hata devam ediyorsa, büyük ihtimalle YAML dosyasındaki boşluk (indentation) yapısında veya Git komutlarının çalışma sırasında "işlenecek bir değişiklik bulamaması" durumunda ufak bir takılma yaşanıyor.
 
-Hatanın kesin çözümü için .github/workflows/manuel_calistir.yml dosyasının içeriğini tamamen silin ve aşağıdakini tek seferde yapıştırın. Bu sürümde, hata ayıklama adımları ekledim ve Git'in "boş commit" hatası vermesini engelledim:
-
-YAML
 
 name: Manuel Blog Yorum Cekici
 
